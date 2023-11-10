@@ -58,9 +58,6 @@ function insert(event) {
     atualizaDisplay()
 }
 
-function calcula() {
-    getCurrentOperation()
-}
 
 //eventos
 
@@ -73,6 +70,7 @@ operatorButton.forEach((button) => button.addEventListener("click", () => {
     switch (button.textContent) {
         case ("+") :
             getPreviousOperation(button.textContent);
+
 
             break;
         case ("-") :
