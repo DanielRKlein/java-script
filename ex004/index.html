@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num = [1,2,3,4,5,6,7]
+        window.alert('default = ' + num);
+        num[7] = 8;
+        window.alert('num[7] = 8;' + num);
+        num.push(9);
+        window.alert('num.push(9;)' + num);
+        num_size = num.length;
+        window.alert('tamanho de num (num_size = num.length; )' + num_size);
+        window.alert('num.sort() ordena em ordem crescente o vetor ' + num.sort())
+        for (let i = 0; i < num.length; i++) {
+            window.alert(`(for padrão) A posição ${i} tem o número ${num[i]}`)
+        }
+
+        for(let i2 in num) {
+            window.alert(`(for let 'x' in 'y') A posição ${i2} tem o número ${num[i2]}`)
+        }
+
+        window.alert('essa função retorna o indice do número (num.indexOf(9))' + num.indexOf(9))
+    </script>
+</body>
+</html>

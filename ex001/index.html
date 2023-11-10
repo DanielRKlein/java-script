@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>esse é o site que vo usar pra aprender a a a aJS</h1>
+    <script>
+        var num_0 =  Number.parseInt(window.prompt('digita ai'));
+        var num_1 = Number.parseInt(window.prompt('digita ai'));
+        var soma = num_0 + num_1;
+        window.alert(typeof (soma));
+        soma = soma.toString(); // ou String(soma)
+        window.alert(typeof (soma));
+        window.alert(`eu estou usando placeholder nesse alert para  mostrar o número ${soma}, e ele só funciona caso minha string esteja entre dois símbolos de crase \`\``);
+        var soma_1 = soma+2;
+        var soma_2 = soma-2;
+        var soma_3 = soma*2;
+        var soma_4 = soma/2;
+        var soma_5 = soma%2;
+        var soma_6 = soma**2;
+
+        var somas_1 = `${soma} + 2`;
+        var somas_2 = `${soma} - 2`;
+        var somas_3 = `${soma} * 2`;
+        var somas_4 = `${soma} / 2`;
+        var somas_5 = `${soma} % 2`;
+        var somas_6 = `${soma} ** 2`;
+
+        for(var i = 1; i <= 6; i++) {
+            var soma_i = eval(`soma_${i}`);
+            var somas_i = eval(`somas_${i}`);
+            window.alert(`esses são os operadores aritimeticos em js ${somas_i} = ${soma_i}`);
+        }
+        
+    </script>
+</body>
+</html>

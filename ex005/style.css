@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(66, 102, 91);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+span {
+    width: 20vw;
+    height: 10vh;
+    background-color: white;
+    border-radius: 20px;
+    margin: 20px;
+    font-size: 5em;
+    text-align: center;
+
+    
+}
+
+span#ponto {
+    position: relative;
+    background-color: transparent;
+    width: 5vw;
+    font-size: 10em;
+    top: -6vh;
+    
+}

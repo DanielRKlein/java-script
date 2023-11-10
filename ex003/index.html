@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="background">
+        <div id="container">
+            <div id="form">
+                <h1>Nacionalidade</h1>
+                <div id="formbox">
+                    <label for="nacionalidade">em que pais você nasceu?</label>
+                    <select name="nacionalidade" id="nacionalidade">
+                        <option value="Brasil">Brasil</option>
+                        <option value="Estados Unidos">EUA</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Emirados Arabes Unidos">Emirados Arabes</option>
+                        <option value="India">India</option>
+                    </select>
+                    <br>
+                    <input type="button" value="OK" onclick="submit()" id="okbutton">
+                </div>
+                <div id="res"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+        function submit() {
+            var res = window.document.querySelector('div#res')
+            var nacionalidade = document.getElementById('nacionalidade').value;
+            res.style.display = 'block';
+            if (nacionalidade == 'Brasil') {
+                res.innerHTML = 'Brasileiro'
+            }
+            else if (nacionalidade == 'Estados Unidos' || nacionalidade == 'Canada') {
+                res.innerHTML = 'Americano'
+            }
+            else if (nacionalidade == 'Emirados Arabes Unidos'){
+                res.innerHTML = 'Arabe'
+            }
+            else if (nacionalidade == 'India') {
+                res.innerHTML = 'Indiano'
+            }
+        }
+
+    </script>
+</body>
+</html>
