@@ -65,13 +65,12 @@ function insert(event) {
 
 function calcula() {
 
-    switch (operator) {
+    if (currentOperation != ""){
+        switch (operator) {
         case ("+") :
-          if(counter)  {
-                getCurrentOperation();
-                currentOperation = previousValue + currentValue;
-                previousValueText = previousValueText + ` ${currentValue}`;
-            }
+            getCurrentOperation();
+            currentOperation = previousValue + currentValue;
+            previousValueText = previousValueText + ` ${currentValue}`;
             updateDisplay()
             break;
         case ("-") :
@@ -92,7 +91,7 @@ function calcula() {
             previousValueText = previousValueText + ` ${currentValue}`;
             updateDisplay()
             break;
-    }
+    }}
 }
 
 
@@ -104,9 +103,10 @@ numericButton.forEach((button) => button.addEventListener("click", insert));
 pointButton.addEventListener("click", insertPonto);
 
 operatorButton.forEach((button) => button.addEventListener("click", () => {
-    getPreviousOperation(button.textContent);
+    if (currentOperation != ""){
+        getPreviousOperation(button.textContent);
     currentOperation = "";
-    updateDisplay()
+    updateDisplay()}
 }));
 
 equals.addEventListener("click", calcula);
