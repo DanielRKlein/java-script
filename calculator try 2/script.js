@@ -26,14 +26,61 @@ function updateDisplay() {
 
 
 function getPreviousOperation(operation) {
-        previousValue = parseFloat(currentOperation);
-        previousValueText = previousValue + ` ${operation}`;
-        currentOperation = "";
-        operator = operation;
-        counter++
-    
+    operator = operation;
+    if (!calc){
+        switch (operation) {
+        case ('+') :
+            previousValue += parseFloat(currentOperation);
+            counter = 0;
+            currentOperation = previousValue
+            break;
+        case ('-') :
+            if (previousValue !== null){
+                previousValue -= parseFloat(currentOperation);
+                counter = 0;
+                currentOperation = previousValue
+            }
+            else {
+                previousValue = parseFloat(currentOperation)
+                counter = 0;
+                currentOperation = previousValue
+            }
+            break;
+        case('*') :
+            if (previousValue !== null) {
+                previousValue *= parseFloat(currentOperation);
+                counter = 0;
+            }
+            else{
+                previousValue = parseFloat(currentOperation)
+                counter = 0;
+                currentOperation = previousValue
+            }
+            break;
+        case('/') :
+            if (previousValue !== null) {
+                previousValue /= parseFloat(currentOperation);
+                counter = 0;
+            }
+            else {
+                previousValue = parseFloat(currentOperation)
+                counter = 0;
+                currentOperation = previousValue
+            }
+            break;
+        default :
+            previousValue = parseFloat(currentOperation);
+        }
+    }
+    else if (counter === 0){
+        previousValue = previousValue + ` ${operation}`;
+    }
+    previousValueText = previousValue + ` ${operation}`;
+    counter++
+    calc = true
     updateDisplay();
 }
+
 
 
 function getCurrentOperation() {
@@ -52,14 +99,17 @@ function insertPonto(event) {
 
 function insert(event) {
     if (calc == true) {
+        currentOperation = "";
         currentOperation = event.target.textContent;
         calc = false;
+        updateDisplay()
     }
     else {
         currentOperation += event.target.textContent;
+        updateDisplay()
     }
     
-    updateDisplay()
+    
 }
 
 
@@ -92,6 +142,10 @@ function calcula() {
             updateDisplay()
             break;
     }}
+    calc = true
+    counter ++
+    previousValue = currentOperation
+    currentValue = previousValue
 }
 
 
@@ -105,8 +159,7 @@ pointButton.addEventListener("click", insertPonto);
 operatorButton.forEach((button) => button.addEventListener("click", () => {
     if (currentOperation != ""){
         getPreviousOperation(button.textContent);
-    currentOperation = "";
-    updateDisplay()}
+        updateDisplay()}
 }));
 
 equals.addEventListener("click", calcula);
