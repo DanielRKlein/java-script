@@ -48,6 +48,17 @@ async function showData(data) {
     const flagsURL = `https://flagsapi.com/${data.sys.country}/flat/32.png`;
     flag.src = flagsURL;
 
+    const res = await fetch(`https://api.unsplash.com/search/photos?client_id=n1t-y9CRtz7-rxgX2N8OmZPAAHJeU8BIcyjd7cWAVA4&query=${data.name}`);
+    const backgroundIMG = await res.json();
+
+    console.log(backgroundIMG)
+    if (backgroundIMG.results.length > 0){
+        document.body.style.backgroundImage = `url(${backgroundIMG.results[0].urls.regular})`
+    }
+    else{
+        document.body.style.backgroundImage = "linear-gradient(-15deg, rgb(61, 23, 133), rgb(29, 29, 66))"
+    }
+
     temperature.innerHTML = `${parseInt(data.main.temp)}°C`;
     wheaterStatus.innerHTML = data.weather[0].description.charAt(0).toUpperCase() + data.weather[0].description.slice(1);
     wheaterImg.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;

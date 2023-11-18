@@ -17,10 +17,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-size: cover;
+    background-image: linear-gradient(-15deg, rgb(61, 23, 133), rgb(29, 29, 66));
 }
 
 section {
-    background-image: linear-gradient(-20deg, rgb(84, 84, 148), rgb(146, 146, 243));
+    background-image: linear-gradient(-20deg, rgb(84, 84, 148), rgb(130, 130, 247));
     border-radius: 15px;
     padding: 25px;
     display: flex;
